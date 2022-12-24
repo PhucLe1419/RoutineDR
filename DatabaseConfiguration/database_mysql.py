@@ -1,5 +1,7 @@
 import mysql.connector
 from mysql.connector import Error
+from rest_framework.response import Response
+
 
 def connect_mysql():
     try:
@@ -9,9 +11,7 @@ def connect_mysql():
             password="",
             database="routine_shop"
         )
-        print("connect database success!!")
         return mydb
-    except Error as e:
-        return "Connect database fail!!".format(e)
+    except Exception as e:
+        return Response(e)
 
-connect_mysql()

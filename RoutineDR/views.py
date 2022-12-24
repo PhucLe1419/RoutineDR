@@ -35,10 +35,9 @@ def create_user(request):
             return Response({"message": "This user is already in the system. Please choose another username "})
         if not any(char in special_char for char in pass_w):
             return Response({"message": "Password not have special character!"})
-        data_insert = insert_data_user(user_name, pass_w, ho_user, ten_user, email, sdt)
-        return data_insert
+        insert_data_user(user_name, pass_w, ho_user, ten_user, email, sdt)
+        return Response([])
     except Exception as e:
-        print(e)
         return Response(e)
 
 

@@ -15,15 +15,14 @@ Including another URLconf
 """
 from django.urls import path
 from django.contrib import admin
-from routine_project.Common.utils import render_schema_view
 from django.urls import include
 from django.urls import re_path
 
 urlpatterns = [
-    path("swagger/", render_schema_view(), name="schema-swagger-ui"),
-    path("redoc/", render_schema_view("redoc"), name="schema-redoc"),
-    re_path(r"^swagger(?P<format>\.json|\.yaml)$", render_schema_view(None),
-            name="schema-json"),
+    # path("swagger/", render_schema_view(), name="schema-swagger-ui"),
+    # path("redoc/", render_schema_view("redoc"), name="schema-redoc"),
+    # re_path(r"^swagger(?P<format>\.json|\.yaml)$", render_schema_view(None),
+    #         name="schema-json"),
     # add urls app
     path('admin/', admin.site.urls),
     path('api/routine/', include("RoutineDR.urls")),
