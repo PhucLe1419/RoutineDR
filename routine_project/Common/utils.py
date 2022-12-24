@@ -58,7 +58,7 @@ def handle_error(error, message="UNKNOWN ERROR", status_code=status.HTTP_500_INT
                         json_dumps_params={'ensure_ascii': False})
 
 
-def handle_success(data, status_code=status.HTTP_200_OK, message="success"):
+def handle_success(data, status_code=status.HTTP_200_OK, message="success", code=0, item_ex=[], ex_mess="", ex_err_mess=""):
     if isinstance(data, JsonResponse):
         return data
 
@@ -73,8 +73,8 @@ def handle_success(data, status_code=status.HTTP_200_OK, message="success"):
         )
         return response
 
-    return JsonResponse({"data": data, "message": message, "status_code": status_code}, status=status_code,
-                        json_dumps_params={'ensure_ascii': False})
+    return JsonResponse({"item": data, "message": message, "status_code": status_code, "code": code, "ItemExcelError": item_ex,
+                         "ExMessage": ex_mess, "ExcelErrorMessage": ex_err_mess}, status=status_code,json_dumps_params={'ensure_ascii': False})
 
 
 def handle_warning(message, data="", status_code=status.HTTP_500_INTERNAL_SERVER_ERROR):

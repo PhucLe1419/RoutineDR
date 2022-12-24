@@ -12,7 +12,7 @@ from drf_yasg.utils import swagger_auto_schema
 from drf_yasg.utils import unset
 from rest_framework import status
 from rest_framework.decorators import api_view
-from tradingproject.Common.swagger import marshmallow_generate_manual_params, \
+from routine_project.Common.swagger import marshmallow_generate_manual_params, \
     create_swagger_params, open_api_schemas
 API_RESPONSES = {
     "200": "Successfully.",

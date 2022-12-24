@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
+from django.contrib import admin
 from routine_project.Common.utils import render_schema_view
 from django.urls import include
 from django.urls import re_path
@@ -24,5 +25,6 @@ urlpatterns = [
     re_path(r"^swagger(?P<format>\.json|\.yaml)$", render_schema_view(None),
             name="schema-json"),
     # add urls app
+    path('admin/', admin.site.urls),
     path('api/routine/', include("RoutineDR.urls")),
 ]

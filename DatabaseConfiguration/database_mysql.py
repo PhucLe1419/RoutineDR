@@ -1,4 +1,5 @@
 import mysql.connector
+from mysql.connector import Error
 
 def connect_mysql():
     try:
@@ -6,9 +7,11 @@ def connect_mysql():
             host="localhost",
             user="root",
             password="",
-            database="api_market"
+            database="routine_shop"
         )
-
+        print("connect database success!!")
         return mydb
-    except:
-        return "Connect error!"
+    except Error as e:
+        return "Connect database fail!!".format(e)
+
+connect_mysql()
