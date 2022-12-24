@@ -5,10 +5,8 @@ from mysql.connector import Error
 
 db = connect_mysql()
 def create_table(data):
-    try:
-        db.cursor().execute(data)
-    except Error as e:
-        print("create table error!".format(e))
+    db.cursor().execute(data)
+
 
 
 
